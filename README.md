@@ -50,7 +50,7 @@ I have two buttons on my Pi: one for his breathing treatment, the other for his 
 **Outstanding questions**
 
 1) Is there a better way than using a cron job?<br/>
-2) The Raspberry Pi isn't ideal. Maybe we should be using [Nomie 2](https://itunes.apple.com/us/app/nomie-2/id1190618299?mt=8) to record events? (HT to [sujins](https://www.reddit.com/user/sujins) for this suggestion).<br/>
+2) The Raspberry Pi isn't ideal. Maybe we should be using [Nomie 2](https://itunes.apple.com/us/app/nomie-2/id1190618299?mt=8) to record events? (HT to [sujins](https://www.reddit.com/user/sujins) for this suggestion). I'd like to make it easy for the user to add their own method and their own host for storing data.<br/>
 3) I have a feeling many users will want to easily add their own models (Nueral Networks, GBMs, GLMs, etc.). What is the best way for users to add their own models?<br/>
 4) Should we support two languages? Currently I'm using Python and R.<br/>
-5) I still have a lot of architectural concerns about this project so far, but I'm hoping things will be more smooth as a couple weeks' worth of development passes.
+5) I still have a lot of architectural concerns about this project so far, but I'm hoping things will be more smooth as a couple weeks' worth of development pass.<br/>
