@@ -44,6 +44,8 @@ To record the inhaler/breathing treatment data, you'll run `treatment_tracker.py
 $ python treatment_tracker.py &
 ```
 
+I have two buttons on my Pi: one for his breathing treatment, the other for his inhaler (pics and a blog post coming soon).
+
 
 **Outstanding questions**
 
