@@ -38,6 +38,12 @@ python get_resutls_send_email.py
 
 This bash script currently runs as a cron job.
 
+To record the inhaler/breathing treatment data, you'll run `treatment_tracker.py` from your Raspberry Pi like this:
+
+```
+$ python treatment_tracker.py &
+```
+
 
 **Outstanding questions**
 
