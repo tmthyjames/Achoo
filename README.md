@@ -21,6 +21,7 @@ First, you'll want to declare a few environment variables:
 For now, the work flow is reflected in the bash script that runs daily:
 
 ```
+#!/bin/bash
 Rscript train_model.r &&
 
 python get_allergy_data.py && python get_weather_data.py && python get_air_data.py &&
