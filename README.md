@@ -54,3 +54,4 @@ I have two buttons on my Pi: one for his breathing treatment, the other for his 
 3) I have a feeling many users will want to easily add their own models (Nueral Networks, GBMs, GLMs, etc.). What is the best way for users to add their own models?<br/>
 4) Should we support two languages? Currently I'm using Python and R.<br/>
 5) I still have a lot of architectural concerns about this project so far, but I'm hoping things will be more smooth as a couple weeks' worth of development pass.<br/>
+6) LONG TERM: How to make this non-developer friendly? How can the typical person with allergies/asthma make use of this day-to-day? Can we make this a mobile app? I think this is my end goal.<br/>
