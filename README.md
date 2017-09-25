@@ -36,3 +36,12 @@ python get_resutls_send_email.py
 3) Run the model (this will write the results to the database after every run)
 4) Retrieve the results (this is the step that sends the email if the prediction is greater than X).
 
+This bash script currently runs as a cron job.
+
+
+**Outstanding questions**
+
+1) Is there a better way than using a cron job?<br/>
+2) The Raspberry Pi isn't ideal. Maybe we should be using [Nomie 2](https://itunes.apple.com/us/app/nomie-2/id1190618299?mt=8) to record events? (HT to [sujins](https://www.reddit.com/user/sujins) for this suggestion).<br/>
+3) I have a feeling many users will want to easily add their own models (Nueral Networks, GBMs, GLMs, etc.). What is the best way for users to add their own models?<br/>
+4) Should we support two languages? Currently I'm using Python and R.<br/>
