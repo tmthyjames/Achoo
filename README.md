@@ -1,5 +1,5 @@
 # Achoo
-Putting code here that predicts if my son will need his inhaler on any given day then will send an email to the school nurse notifying her that he may need preemptive treatment.
+Achoo uses a Raspberry Pi to predict if my son will need his inhaler on any given day using weather, pollen, and air quality data. If the prediction for a given day is above a specified threshold, the Pi will email his school nurse, and myself, notifying her that he may need preemptive treatment.
 
 Prompted by [this](https://www.reddit.com/r/Python/comments/70udwq/what_routine_tasks_do_you_automate_with_programs/) reddit post. Lots of great ideas in there.
 
