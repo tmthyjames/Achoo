@@ -3,6 +3,7 @@
 import RPi.GPIO as GPIO
 import time
 import datetime
+import os
 import pandas as pd
 import sqlalchemy
 

@@ -18,7 +18,7 @@ def send_email(TO, FROM, subject, text):
         server.sendmail(FROM, TO, message)
         server.close()
     except Exception as e:
-        print e
+        print(e)
 
 engine = sqlalchemy.create_engine('postgresql://'+os.environ['USERNAME']+':'+os.environ['PASSWORD']+'@'+os.environ['HOSTNAME']+':5432/allergyalert')
 results = engine.execute('select * from results order by dateof desc limit 1').fetchone()
