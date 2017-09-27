@@ -13,7 +13,8 @@ import constants as const
 
 def send_email(subject, text):
     """Send email using Gmail"""
-    message = "\From: {}\nTo: {}\nSubject: {}\n\n{}".format(const.GMAIL_FROM, ",".join(const.GMAIL_TO), subject, text)
+    message = "\From: {}\nTo: {}\nSubject: {}\n\n{}".format(
+        const.GMAIL_FROM, ",".join(const.GMAIL_TO), subject, text)
     try:
         server = smtplib.SMTP(const.SMTP_URI, const.SMTP_PORT)
         server.ehlo()
@@ -32,7 +33,7 @@ def get_db_engine():
 
 def get_uri_content(uri, headers=None, content_type='json'):
     """Get URI content"""
-    assert content_type in set(['json', 'html', 'text']), 'content type {} is invalid'.format(content_type)
+    assert content_type in set(['json', 'html', 'text']), 'bad type {}'.format(content_type)
     resp = requests.get(uri, headers)
     if content_type == 'json':
         return resp.json()
