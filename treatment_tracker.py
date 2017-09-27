@@ -1,15 +1,14 @@
 # treatment_tracker.py
 
-import datetime
-import os
 import time
 
 import pandas as pd
 import RPi.GPIO as GPIO
-import sqlalchemy
+
+import utils
 
 
-engine = sqlalchemy.create_engine('postgresql://' + os.environ['USERNAME'] + ':' + os.environ['PASSWORD'] + '@' + os.environ['HOSTNAME'] + ':5432/allergyalert')
+engine = utils.get_db_engine()
 
 inhaler_btn = 18
 breathing_treatment_btn = 23
@@ -19,16 +18,16 @@ GPIO.setup(inhaler_btn, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(breathing_treatment_btn, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 treatment = 0
-today = time.mktime(datetime.datetime.now().timetuple())
+today = utils.get_current_time()
 while True:
-    timeof = datetime.datetime.now().timetuple()
+    timeof = utils.get_current_time(no_wrap=True)
     if GPIO.input(inhaler_btn) == GPIO.LOW:
         print("Inhaler was used...")
-        today = time.mktime(datetime.datetime.now().timetuple())
+        today = utils.get_current_time()
         treatment = 1
     elif GPIO.input(breathing_treatment_btn) == GPIO.LOW:
         print("Breathing treament was administered...")
-        today = time.mktime(datetime.datetime.now().timetuple())
+        today = utils.get_current_time()
         treatment = 2
     if treatment:
         treatment_df = pd.DataFrame([{'treatment': treatment, 'dateof': today}])

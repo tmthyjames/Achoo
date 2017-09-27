@@ -1,20 +1,15 @@
 # get_weather_data.py
 
-import datetime
-import os
-import requests
-import time
-
 import pandas as pd
-import sqlalchemy
+
+import constants as const
+import utils
 
 
-engine = sqlalchemy.create_engine('postgresql://' + os.environ['USERNAME'] + ':' + os.environ['PASSWORD'] + '@' + os.environ['HOSTNAME'] + ':5432/allergyalert')
-today = time.mktime(datetime.datetime.now().timetuple())
-
-url = 'https://api.darksky.net/forecast/' + os.environ['DARK_SKY_API_KEY'] + '/' + os.environ['DARK_SKY_LOCATION']
-req = requests.get(url)
-resp = req.json()
+engine = utils.get_db_engine()
+today = utils.get_current_time()
+resp = utils.get_uri_content(uri=const.DARK_SKY_URI,
+                             content_type='json')
 
 for key in resp.keys():
     if isinstance(resp.get(key), dict) and 'data' in resp.get(key):
