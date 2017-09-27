@@ -1,18 +1,20 @@
 # get_allergy_data.py
 
+import datetime
 import os
 import requests
+import time
+
 import pandas as pd
 import sqlalchemy
-import datetime
-import time
+
 
 # get forecast
 # url = "https://www.pollen.com/api/forecast/extended/pollen/37076"
 # get 30 day history
 # url = 'https://www.pollen.com/api/forecast/historic/pollen/37076/30'
 
-engine = sqlalchemy.create_engine('postgresql://'+os.environ['USERNAME']+':'+os.environ['PASSWORD']+'@'+os.environ['HOSTNAME']+':5432/allergyalert')
+engine = sqlalchemy.create_engine('postgresql://' + os.environ['USERNAME'] + ':' + os.environ['PASSWORD'] + '@' + os.environ['HOSTNAME'] + ':5432/allergyalert')
 url = "https://www.pollen.com/api/forecast/current/pollen/" + os.environ['POLLEN_ZIPCODE']
 today = time.mktime(datetime.datetime.now().timetuple())
 
@@ -34,7 +36,7 @@ resp = response.json()
 
 allergens = resp['Location']['periods']
 
-for n,row in enumerate(allergens):
+for n, row in enumerate(allergens):
     allergens[n]['Triggers'] = ', '.join([i['Name'] for i in allergens[n]['Triggers']])
     allergens[n]['dateof'] = today
 
