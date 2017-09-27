@@ -3,6 +3,12 @@ Achoo uses a Raspberry Pi to predict if my son will need his inhaler on any give
 
 Prompted by [this](https://www.reddit.com/r/Python/comments/70udwq/what_routine_tasks_do_you_automate_with_programs/) reddit post. Lots of great ideas in there.
 
+**UPDATE: 09/27/2017**
+
+My goal is to have this repo completely decoupled from any UI and instead act as a restful-like API that could be consumed by any UI. Achoo's default UI is housed [here](https://github.com/tmthyjames/AchooUI).
+
+
+
 **UPDATE**
 
 I will be updating this readme fairly often for the next week or two to make sure the code and instructions are as readable as possible.
