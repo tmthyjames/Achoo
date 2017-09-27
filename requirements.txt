@@ -1,0 +1,5 @@
+bs4
+pandas
+rpi.gpio
+sqlalchemy
+pep8

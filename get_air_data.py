@@ -1,14 +1,16 @@
 # get_air_data.py
 
+import datetime
 import os
 import requests
+import time
+
+from bs4 import BeautifulSoup as BS
 import pandas as pd
 import sqlalchemy
-import datetime
-import time
-from bs4 import BeautifulSoup as BS
 
-engine = sqlalchemy.create_engine('postgresql://'+os.environ['USERNAME']+':'+os.environ['PASSWORD']+'@'+os.environ['HOSTNAME']+':5432/allergyalert')
+
+engine = sqlalchemy.create_engine('postgresql://' + os.environ['USERNAME'] + ':' + os.environ['PASSWORD'] + '@' + os.environ['HOSTNAME'] + ':5432/allergyalert')
 today = time.mktime(datetime.datetime.now().timetuple())
 
 url = 'https://www.airnow.gov/index.cfm?action=airnow.local_city&zipcode=37076&submit=Go'
