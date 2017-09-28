@@ -28,13 +28,13 @@ def send_email(subject, text):
 
 def get_db_engine():
     """Get database engine"""
-    return sqlalchemy.create_engine(const.PG_URI)
+    return sqlalchemy.create_engine(const.POSTGRES_URI)
 
 
 def get_uri_content(uri, headers=None, content_type='json'):
     """Get URI content"""
     assert content_type in set(['json', 'html', 'text']), 'bad type {}'.format(content_type)
-    resp = requests.get(uri, headers)
+    resp = requests.get(uri, headers=headers)
     if content_type == 'json':
         return resp.json()
     elif content_type == 'html':

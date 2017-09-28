@@ -65,5 +65,5 @@ I have two buttons on my Pi: one for his breathing treatment, the other for his 
 **Here's my Pi setup**
 
 
-![From the top](IMG_5919.JPG)
+![From the top](img/IMG_5919.JPG)
 
