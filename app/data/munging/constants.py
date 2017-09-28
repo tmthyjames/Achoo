@@ -5,19 +5,19 @@ import os
 
 # Postgres config
 POSTGRES_URI = 'postgresql://{}:{}@{}:{}/{}'.format(
-    os.environ['USERNAME'],
-    os.environ['PASSWORD'],
-    os.environ['HOSTNAME'],
-    os.getenv('PORT', '5432'),
-    os.getenv('DATABASE', 'allergyalert')
+    os.environ['ACHOO_DB_USERNAME'],
+    os.environ['ACHOO_DB_PASSWORD'],
+    os.getenv('ACHOO_DB_HOSTNAME', 'localhost'),
+    os.getenv('ACHOO_DB_PORT', '5432'),
+    os.getenv('ACHOO_DB_DATABASE', 'achoo')
 )
 
 # Airnow config
 AIRNOW_URI = 'https://www.airnow.gov/index.cfm?action=airnow.local_city&zipcode=37076&submit=Go'
 
 # Pollen config
-POLLEN_URI = 'https://www.pollen.com/api/forecast/current/pollen/' + os.environ['POLLEN_ZIPCODE']
-POLLEN_HEADER = {
+POLLEN_URI = 'https://www.pollen.com/api/forecast/current/pollen/' + os.environ['ACHOO_POLLEN_ZIPCODE']
+POLLEN_HEADERS = {
     'accept': 'application/json, text/plain, */*',
     'accept-encoding': 'gzip, deflate, br',
     'accept-language': 'en-US,en;q=0.8,it;q=0.6',
@@ -30,14 +30,14 @@ POLLEN_HEADER = {
 }
 
 # Gmail config
-GMAIL_FROM = os.environ['FROM_EMAIL']
-GMAIL_TO = os.environ['TO_EMAIL']
-GMAIL_PASSWORD = os.environ['GMAIL_PASSWORD']
+GMAIL_FROM = os.environ['ACHOO_FROM_EMAIL']
+GMAIL_TO = os.environ['ACHOO_TO_EMAIL']
+GMAIL_PASSWORD = os.environ['ACHOO_GMAIL_PASSWORD']
 SMTP_URI = 'smtp.gmail.com'
 SMTP_PORT = 587
 
 # Dark Sky config
 DARK_SKY_URI = 'https://api.darksky.net/forecast/{}/{}'.format(
-    os.environ['DARK_SKY_API_KEY'],
-    os.environ['DARK_SKY_LOCATION']
+    os.environ['ACHOO_DARK_SKY_API_KEY'],
+    os.environ['ACHOO_DARK_SKY_LOCATION']
 )
