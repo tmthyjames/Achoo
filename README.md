@@ -15,26 +15,31 @@ I will be updating this readme fairly often for the next week or two to make sur
 
 First, you'll want to declare a few environment variables:
 
-`FROM_EMAIL` - the sender's email address.<br/>
-`TO_EMAIL` - the email addresses to send the alerts to.<br/>
-`GMAIL_PASSWORD` - to send emails (if you don't already have one) you'll need to register an app with gmail.<br/>
-`USERNAME` - the PostgreSQL username (or other database).<br/>
-`PASSWORD` - PostgreSQL password.<br/>
-`DARK_SKY_API_KEY` - for the weather data, I'm using [Dark Sky](https://darksky.net/dev). You get 1,000 free hits a day. Their pricing is really affordabe.<br/>
-`DARK_SKY_LOCATION` - The latitude, longitude for the location you'll be tracking. <br/>
-`POLLEN_ZIPCODE` - The zipcode you'll be tracking.<br/>
+`ACHOO_FROM_EMAIL` - the sender's email address.<br/>
+`ACHOO_TO_EMAIL` - the email addresses to send the alerts to.<br/>
+`ACHOO_GMAIL_PASSWORD` - to send emails (if you don't already have one) you'll need to register an app with gmail.<br/>
+`ACHOO_DARK_SKY_API_KEY` - for the weather data, I'm using [Dark Sky](https://darksky.net/dev). You get 1,000 free hits a day. Their pricing is really affordabe.<br/>
+`ACHOO_DARK_SKY_LOCATION` - The latitude, longitude for the location you'll be tracking. <br/>
+`ACHOO_POLLEN_ZIPCODE` - The zipcode you'll be tracking.<br/>
+`ACHOO_DB_USERNAME` - the PostgreSQL username (or other database).<br/>
+`ACHOO_DB_PASSWORD` - PostgreSQL password.<br/>
+`ACHOO_DB_DATABASE` - Name of the database (default: `achoo`).<br/>
+`ACHOO_DB_PORT` - Port number (default: `5432`).<br/>
+
 
 For now, the work flow is reflected in the bash script that runs daily:
 
 ```
 #!/bin/bash
-Rscript train_model.r &&
+Rscript app/models/exe/r/train_model.r &&
 
-python get_allergy_data.py && python get_weather_data.py && python get_air_data.py &&
+python app/munging/get_allergy_data.py && 
+    python app/munging/get_weather_data.py && 
+    python app/munging/get_air_data.py &&
 
-Rscript run_model.r &&
+Rscript app/models/exe/r/run_model.r &&
 
-python get_resutls_send_email.py
+python app/munging/get_resutls.py
 ```
 
 1) Train the model (this assumes we have data, so I'll upload some test data that I've been using)
@@ -43,6 +48,8 @@ python get_resutls_send_email.py
 4) Retrieve the results (this is the step that sends the email if the prediction is greater than X).
 
 This bash script currently runs as a cron job.
+
+THIS IS LIKELY TO CHANGE SOON.
 
 To record the inhaler/breathing treatment data, you'll run `treatment_tracker.py` from your Raspberry Pi like this:
 
