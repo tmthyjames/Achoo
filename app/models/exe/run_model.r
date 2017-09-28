@@ -22,7 +22,9 @@ dtab <- dbGetQuery(con, "
 # for now, ignoring distinction between breathing treatment (2) and inhaler useage (1)
 dtab$treatment_ <- ifelse(dtab$treatment>0, 1, 0)
 
-# obviously you'll want to use actual data here to predict
+model <- readRDS('../r/achoo_model_logistic.r')
+
+# you'll want to use actual data here to predict
 predict_value <- predict(model, newdata = dtab[1,])
                    
 today <- as.numeric(as.POSIXct(Sys.time()))
