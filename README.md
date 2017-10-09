@@ -72,5 +72,9 @@ I have two buttons on my Pi: one for his breathing treatment, the other for his 
 
 ### Here's my Pi setup
 
+Blue button is for inhaler (first line of defense)
+
+red button is for breathing treatment (second line of defense; use this one if his symptoms are really bad)
+
 ![From the top](img/IMG_5919.JPG)
 
