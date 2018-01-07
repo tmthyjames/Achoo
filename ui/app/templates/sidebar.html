@@ -25,8 +25,10 @@
       <!-- <h3>General</h3> -->
       <ul class="nav side-menu">
         <li><a href="/my-dashboard"><i class="fa fa-dashboard"></i> Dashboard <span class="label label-success pull-right">Coming Soon</span></a></li>
+{% if not current_user.is_anonymous %}
         <li><a href="/capture"><i class="fa fa-cloud-upload"></i> Capture </a></li>
         <li><a href="/logout"><i class="fa fa-power-off"></i> Logout </a></li>
+{% endif %}
 <!--           <ul class="nav child_menu">
             <li><a href="index.html">Dashboard</a></li>
             <li><a href="index2.html">Dashboard2</a></li>
