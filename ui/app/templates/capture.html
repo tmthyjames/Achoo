@@ -1,0 +1,51 @@
+{% extends "base_site.html" %}
+
+{% block title %} Achoo {% endblock title %}
+
+{% block stylesheets %}
+  {{ super() }}
+{% endblock stylesheets %}
+
+{% block content %}
+
+  <div class="right_col" role="main">
+    <div class="">
+{% if current_user.inhaler > 0 %}
+      <a style="height:100px;margin-left:15%;margin-top:15%;" id="captureinhaler" value="inhaler" onclick="getLocation('inhaler')" class="col-xs-8 col-xs-8 btn btn-lg btn-primary">
+        <i class=""></i> <h3>Inhaler</h3>
+      </a>
+ {% endif %}
+{% if current_user.meds > 0 %}
+      <a style="height:100px;margin-left:15%;margin-top:15%;" id="capturemeds" value="meds" onclick="getLocation('meds')" class="col-xs-8 col-xs-8 btn btn-lg btn-primary">
+        <i class=""></i> <h3>Meds</h3>
+      </a>
+ {% endif %}
+     </div>
+  </div>
+
+{% endblock content %}
+
+{% block javascripts %}
+  {{ super() }}
+  <!-- validator -->
+  <script>
+
+	var x = document.getElementById("capture");
+
+	function getLocation(treatment) {
+	    if (navigator.geolocation) {
+	        navigator.geolocation.getCurrentPosition(showPosition);
+	    } else { 
+	        // x.innerHTML = "Geolocation is not supported by this browser.";
+	    }
+	}
+
+	function showPosition(position) {
+	    // x.innerHTML = "Latitude: " + position.coords.latitude + 
+	    // "<br>Longitude: " + position.coords.longitude;
+	    var treatment = $('#capture').attr('value');
+	    position.treatment = treatment;
+	    console.log(position);
+	}
+  </script>
+{% endblock javascripts %}

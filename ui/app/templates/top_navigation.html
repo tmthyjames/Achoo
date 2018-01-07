@@ -1,0 +1,18 @@
+<div class="nav_menu">
+  <nav>
+    <div class="nav toggle">
+      <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+    </div>
+    {% if current_user.is_anonymous %}
+    <ul class="nav navbar-nav navbar-right">
+      <li class="">
+          <a href="/sign-up" class="btn btn-sm btn-success">Sign Up</a>
+      </li>
+
+      <li role="presentation" class="dropdown">
+        <a href="/login" class="btn btn-sm btn-success">Log In</a>
+      </li>
+    </ul>
+    {% endif %}
+  </nav>
+</div>
