@@ -8,7 +8,6 @@ import utils
 
 def main():
     engine = utils.get_db_engine()
-    print engine, "--0-0-000-0-0-0-=0-=-=-=0-=0-=0-=0-=0-=0"
     today = utils.get_current_time()
 
     soup = utils.get_uri_content(uri=const.AIRNOW_URI,
