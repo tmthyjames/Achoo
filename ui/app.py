@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, flash, g
+from flask import Flask, redirect, url_for, flash, g, config, session
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, current_user, login_user
@@ -29,11 +29,12 @@ app.register_blueprint(views_blueprints)
 login_manager = LoginManager(app)
 login_manager.init_app(app)
 
+
 @app.before_request
 def inject_globals():
     with app.app_context():
-        g.VERSION = Config.VERSION
-        g.FLAG = Config.FLAG
+        session['VERSION'] = Config.VERSION
+        session['MSG'] = Config.MSG
     return None
 
 @login_manager.user_loader

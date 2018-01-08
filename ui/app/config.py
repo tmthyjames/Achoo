@@ -1,5 +1,5 @@
 import os
 
 class Config(object):
-    FLAG = 'beta'
+    MSG = '(beta)'
     VERSION = '0.1'
