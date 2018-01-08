@@ -16,8 +16,8 @@
       </a>
  {% endif %}
 {% if current_user.meds > 0 %}
-      <a style="height:100px;margin-left:15%;margin-top:15%;" id="capturemeds" value="meds" onclick="getLocation('meds')" class="col-xs-8 col-xs-8 btn btn-lg btn-primary">
-        <i class=""></i> <h3>Meds</h3>
+      <a style="height:100px;margin-left:15%;margin-top:15%;" id="capturemeds" value="meds" onclick="getLocation('other')" class="col-xs-8 col-xs-8 btn btn-lg btn-primary">
+        <i class=""></i> <h3>Other</h3>
       </a>
  {% endif %}
      </div>
@@ -27,25 +27,41 @@
 
 {% block javascripts %}
   {{ super() }}
-  <!-- validator -->
+
   <script>
-  	console.log('{{g.VERSION}}, {{g.FLAG}}, =-=-=-=-=-=-, {{session.MSG}}')
-	var x = document.getElementById("capture");
+    var treatmentUsed;
 
 	function getLocation(treatment) {
+		treatmentUsed = treatment;
 	    if (navigator.geolocation) {
 	        navigator.geolocation.getCurrentPosition(showPosition);
-	    } else { 
-	        // x.innerHTML = "Geolocation is not supported by this browser.";
-	    }
+	    } else {}
 	}
 
 	function showPosition(position) {
-	    // x.innerHTML = "Latitude: " + position.coords.latitude + 
-	    // "<br>Longitude: " + position.coords.longitude;
-	    var treatment = $('#capture').attr('value');
-	    position.treatment = treatment;
-	    console.log(position);
+		var postData = {};
+		postData.treatment = treatmentUsed;
+		postData.coords = {}
+		postData.coords.latitude = position.coords.latitude;
+		postData.coords.longitude = position.coords.longitude;
+		postData.timestamp = position.timestamp;
+		postData.accuracy = position.accuracy;
+	    postPosition(postData);
 	}
+
+	function postPosition(postData){
+		$.ajax({
+		    type: "POST",
+		    url: "/api/1.0/prediction/",
+		    data: JSON.stringify(postData),
+		    contentType: "application/json; charset=utf-8",
+		    dataType: "json",
+		    success: function(data){
+		    	console.log(data);
+		    },
+		    failure: function(errMsg) {console.log(errMsg)}
+		});
+	}
+
   </script>
 {% endblock javascripts %}

@@ -6,13 +6,13 @@ import time
 import datetime
 from bs4 import BeautifulSoup as BS
 
-engine = sqlalchemy.create_engine('postgresql://tdobbins:1q2w3e4r5t6y@localhost:5432/achoo')
+engine = sqlalchemy.create_engine(os.environ['ACHOO_PG_CONN_STR'])
 today = time.mktime(datetime.datetime.now().timetuple())
 
 users = engine.execute('select distinct on (zipcode) * from users ').fetchall()
 
 def get_weather_data(lat, lng):
-    url = 'https://api.darksky.net/forecast/c9cbc2214a572195e26faa8664e3d052/'+str(lat)+','+str(lng)
+    url = 'https://api.darksky.net/forecast/'+os.environ['ACHOO_DARKSKY_API_KEY']+'/'+str(lat)+','+str(lng)
     req = requests.get(url)
     resp = req.json()
 
@@ -52,7 +52,7 @@ def get_allergen_data(zipcode):
     # get 30 day history
     # url = 'https://www.pollen.com/api/forecast/historic/pollen/37076/30'
 
-    url = "https://www.pollen.com/api/forecast/current/pollen/" + "37122"
+    url = "https://www.pollen.com/api/forecast/current/pollen/" + str(zipcode)
     today = time.mktime(datetime.datetime.now().timetuple())
 
     headers = {
@@ -87,7 +87,7 @@ def get_airquality_data(zipcode):
 
     today = time.mktime(datetime.datetime.now().timetuple())
 
-    url = 'https://www.airnow.gov/index.cfm?action=airnow.local_city&zipcode=37122&submit=Go'
+    url = 'https://www.airnow.gov/index.cfm?action=airnow.local_city&zipcode='+str(zipcode)+'&submit=Go'
     resp = requests.get(url)
     soup = BS(resp.content, 'html')
 

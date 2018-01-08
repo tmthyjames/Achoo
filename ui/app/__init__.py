@@ -1,6 +1,7 @@
 from flask import Flask
+import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'you-will-never-guess'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://tdobbins:1q2w3e4r5t6y@localhost:5432/achoo'
+app.config['SECRET_KEY'] = os.environ['ACHOO_SECRET_KEY']
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['ACHOO_PG_CONN_STR']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

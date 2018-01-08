@@ -15,3 +15,13 @@ CREATE TABLE users (
     lng NUMERIC(12, 9),
     lat NUMERIC(12, 9)
 )
+
+CREATE TABLE treatment (
+    id serial PRIMARY KEY,
+    timestamp BIGINT,
+    userid INTEGER,
+    lng NUMERIC(12, 9),
+    lat NUMERIC(12, 9),
+    treatment varchar(100),
+    accuracy INTEGER
+)
