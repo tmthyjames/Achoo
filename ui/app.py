@@ -21,13 +21,23 @@ from app.models.models import User
 # app
 from app import app
 
+# config
+from app.config import Config
 
 app.register_blueprint(views_blueprints)
 
 login_manager = LoginManager(app)
 login_manager.init_app(app)
 
+@app.before_request
+def inject_globals():
+    with app.app_context():
+        g.VERSION = Config.VERSION
+        g.FLAG = Config.FLAG
+    return None
+
 @login_manager.user_loader
+# @app.before_request
 def load_user(user_id):
     return User.query.get(user_id)
 

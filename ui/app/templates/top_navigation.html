@@ -3,16 +3,20 @@
     <div class="nav toggle">
       <a id="menu_toggle"><i class="fa fa-bars"></i></a>
     </div>
-    {% if current_user.is_anonymous %}
     <ul class="nav navbar-nav navbar-right">
+    {% if current_user.is_anonymous %}
       <li class="">
-          <a href="/sign-up" class="btn btn-sm btn-success">Sign Up</a>
+          <a href="/sign-up" class="btn btn-sm btn-success"><i class="fa fa-user"></i> Sign Up</a>
       </li>
 
       <li role="presentation" class="dropdown">
-        <a href="/login" class="btn btn-sm btn-success">Log In</a>
+        <a href="/login" class="btn btn-sm btn-success"><i class="fa fa-sign-in"></i> Login </a>
       </li>
-    </ul>
+    {% else %}
+		<li>
+			<a href="/logout" class="btn btn-sm btn-success"><i class="fa fa-sign-out"></i> Logout </a>
+		</li>
     {% endif %}
+    </ul>
   </nav>
 </div>

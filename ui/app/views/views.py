@@ -45,7 +45,6 @@ def prediction():
     return render_template('prediction.html')
 
 @main.route('/my-dashboard', methods=['GET'])
-@login_required
 def dashboard():
     return render_template('my-dashboard.html')
 
