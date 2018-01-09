@@ -19,32 +19,32 @@ from app.api.api import Prediction, Admin
 from app.models.models import User
 
 # app
-from app import app
+from app import application
 
 # config
 from app.config import Config
 
-app.register_blueprint(views_blueprints)
+application.register_blueprint(views_blueprints)
 
-login_manager = LoginManager(app)
-login_manager.init_app(app)
+login_manager = LoginManager(application)
+login_manager.init_app(application)
 
 
-@app.before_request
+@application.before_request
 def inject_globals():
-    with app.app_context():
+    with application.app_context():
         session['VERSION'] = Config.VERSION
         session['MSG'] = Config.MSG
     return None
 
 @login_manager.user_loader
-# @app.before_request
+# @application.before_request
 def load_user(user_id):
     return User.query.get(user_id)
 
-api = Api(app)
+api = Api(application)
 api.add_resource(Prediction, '/api/1.0/prediction/')
 api.add_resource(Admin, '/api/1.0/user/')
 
 if __name__ == '__main__':
-    app.run()
+    application.run()

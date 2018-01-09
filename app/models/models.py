@@ -3,10 +3,10 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from app import app
+from app import application
 
-db = SQLAlchemy(app)
-bcrypt = Bcrypt(app)
+db = SQLAlchemy(application)
+bcrypt = Bcrypt(application)
 
 
 class User(UserMixin, db.Model):
