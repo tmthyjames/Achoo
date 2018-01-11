@@ -47,4 +47,4 @@ api.add_resource(Prediction, '/api/1.0/prediction/')
 api.add_resource(Admin, '/api/1.0/user/')
 
 if __name__ == '__main__':
-    application.run()
+    application.run(debug=Config.DEBUG)

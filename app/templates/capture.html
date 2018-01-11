@@ -11,13 +11,13 @@
   <div class="right_col" role="main">
     <div class="">
 {% if current_user.inhaler > 0 %}
-      <a style="height:100px;margin-left:15%;margin-top:15%;" id="captureinhaler" value="inhaler" onclick="getLocation('inhaler')" class="col-xs-8 col-xs-8 btn btn-lg btn-primary">
-        <i class=""></i> <h3>Inhaler</h3>
+      <a style="height:100px;margin-left:15%;margin-top:15%;" id="captureinhaler" value="inhaler" onclick="getLocation('inhaler', '#inhalertext')" class="col-xs-8 col-xs-8 btn btn-lg btn-primary">
+        <i class=""></i> <h3>Inhaler <i class="loadicon" id="inhalertext"></i></h3>
       </a>
  {% endif %}
 {% if current_user.meds > 0 %}
-      <a style="height:100px;margin-left:15%;margin-top:15%;" id="capturemeds" value="meds" onclick="getLocation('other')" class="col-xs-8 col-xs-8 btn btn-lg btn-primary">
-        <i class=""></i> <h3>Other</h3>
+      <a style="height:100px;margin-left:15%;margin-top:15%;" id="capturemeds" value="meds" onclick="getLocation('other', '#medstext')" class="col-xs-8 col-xs-8 btn btn-lg btn-primary">
+        <i class=""></i> <h3>Other <i class="loadicon" id="medstext"></i></h3>
       </a>
  {% endif %}
      </div>
@@ -31,11 +31,20 @@
   <script>
     var treatmentUsed;
 
-	function getLocation(treatment) {
+	function getLocation(treatment, selector) {
+		var text = $(selector).text()
+		$(selector).append(' <i class="fa fa-refresh fa-spin" style="font-size:24px"></i>');
 		treatmentUsed = treatment;
 	    if (navigator.geolocation) {
 	        navigator.geolocation.getCurrentPosition(showPosition);
-	    } else {}
+	    } else {
+			new PNotify({
+                title: 'This browser is not supported!',
+                text: '',
+                type: 'danger',
+                styling: 'bootstrap3'
+            });
+	    }
 	}
 
 	function showPosition(position) {
@@ -57,9 +66,24 @@
 		    contentType: "application/json; charset=utf-8",
 		    dataType: "json",
 		    success: function(data){
-		    	console.log(data);
+				new PNotify({
+                    title: 'Usage Recorded!',
+                    text: '',
+                    type: 'success',
+                    styling: 'bootstrap3'
+                });
+                $('.loadicon').each(function(ix, val){
+                	$(val).empty();
+                })
 		    },
-		    failure: function(errMsg) {console.log(errMsg)}
+		    failure: function(errMsg) {
+				new PNotify({
+                    title: 'Capture Failed!',
+                    text: '',
+                    type: 'danger',
+                    styling: 'bootstrap3'
+                });
+		    }
 		});
 	}
 

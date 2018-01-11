@@ -82,7 +82,7 @@
 										<li>
 											<a>
 												<span>
-													<span><h5>How many times are the following used weekly?</h5></span>
+													<span><h5>How many times do you use your inhaler weekly?</h5></span>
 												</span>
 											</a>
 										</li>
@@ -92,16 +92,16 @@
 									<label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">Inhaler 
 									</label>
 									<div class="col-md-2 col-sm-2 col-xs-12">
-										<input type="number" id="treatment1" name="inhaler" data-validate-minmax="" class="form-control col-md-7 col-xs-12">
+										<input type="number" id="treatment1" name="inhaler" required="required" data-validate-minmax="" class="form-control col-md-7 col-xs-12">
 									</div>
 								</div>
-								<div class="item form-group">
+<!-- 								<div class="item form-group">
 									<label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">Other 
 									</label>
 									<div class="col-md-2 col-sm-2 col-xs-12">
-										<input type="number" id="treatment2" name="meds" data-validate-minmax="" class="form-control col-md-7 col-xs-12">
+										<input type="number" id="treatment2" name="meds" required="required" data-validate-minmax="" class="form-control col-md-7 col-xs-12">
 									</div>
-								</div>
+								</div> -->
 								<div class="ln_solid"></div>
 								<div class="form-group">
 									<div class="col-md-6 col-md-offset-3">
@@ -122,6 +122,7 @@
 
 	<script>
 	$('#sign-up-form').submit(function(e){
+		$('#send').append(' <i class="fa fa-refresh fa-spin" style="font-size:24px"></i>');
 		e.preventDefault();
 		var postArray = $(this).serializeArray();
 		var postData = {};
