@@ -5,6 +5,7 @@ from flask_login import LoginManager, UserMixin, current_user, login_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_restful import Resource
 from flask import request
+from flask_sslify import SSLify
 
 # views
 from app.views.views import main as views_blueprints
@@ -23,6 +24,8 @@ from app import application
 
 # config
 from app.config import Config
+
+sslify = SSLify(application)
 
 application.register_blueprint(views_blueprints)
 
