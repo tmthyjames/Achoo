@@ -39,4 +39,5 @@ class Treatment(UserMixin, db.Model):
     lat = db.Column(db.Float)
     treatment = db.Column(db.String(100), nullable=False)
     accuracy = db.Column(db.Integer)
+    zipcode = db.Column(db.String(10))
 

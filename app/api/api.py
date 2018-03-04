@@ -9,6 +9,15 @@ import json
 # models
 from app.models.models import User, db, bcrypt, Treatment
 
+def get_zipcode_from_coords(lat, lng):
+    result = db.engine.execute("""
+        select geom.geoid10 
+        from cb_2016_us_zcta510_500k geom 
+        where ST_Contains(geom.geom, ST_MakePoint({lng}, {lat}))
+    """.format(lng=-86.725573627, lat=36.227447713)).first()
+    if result:
+        return result[0]
+
 class Prediction(Resource):
 
     def get(self):
@@ -18,6 +27,7 @@ class Prediction(Resource):
         capture_data = request.get_json()
         latitude = capture_data.get('coords').get('latitude')
         longitude = capture_data.get('coords').get('longitude')
+        zipcode = get_zipcode_from_coords(latitude, longitude)
         timestamp = capture_data.get('timestamp')
         treatment = capture_data.get('treatment')
         accuracy = capture_data.get('accuracy')
@@ -28,7 +38,8 @@ class Prediction(Resource):
             lat=latitude,
             lng=longitude,
             treatment=treatment,
-            accuracy=accuracy
+            accuracy=accuracy,
+            zipcode=zipcode
         )
         db.session.add(treatment)
         db.session.commit()
