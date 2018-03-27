@@ -198,7 +198,7 @@ $(document).ready(function() {
         var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
         elems.forEach(function (html) {
             var switchery = new Switchery(html, {
-                color: '#26B99A'
+                color: '#16A6DF'
             });
         });
     }
@@ -531,7 +531,7 @@ if (typeof NProgress != 'undefined') {
 					monotonicFit: true
 				}
 			},
-			colors: ["#26B99A"],
+			colors: ["#16A6DF"],
 			grid: {
 				borderWidth: {
 					top: 0,
@@ -665,7 +665,7 @@ if (typeof NProgress != 'undefined') {
 			// console.log('init_skycons');
 		
 			var icons = new Skycons({
-				"color": "#73879C"
+				"color": "#565D5F"
 			  }),
 			  list = [
 				"clear-day", "clear-night", "partly-cloudy-day",
@@ -707,7 +707,7 @@ if (typeof NProgress != 'undefined') {
 							"#BDC3C7",
 							"#9B59B6",
 							"#E74C3C",
-							"#26B99A",
+							"#16A6DF",
 							"#3498DB"
 						],
 						hoverBackgroundColor: [
@@ -815,7 +815,7 @@ if (typeof NProgress != 'undefined') {
 					'7': '#a1a1a1'
 				},
 				barSpacing: 2,
-				barColor: '#26B99A'
+				barColor: '#16A6DF'
 			});
 			
 			
@@ -827,7 +827,7 @@ if (typeof NProgress != 'undefined') {
 					'7': '#a1a1a1'	
 				},
 				barSpacing: 2,
-				barColor: '#26B99A'
+				barColor: '#16A6DF'
 			});
 			
 			
@@ -835,11 +835,11 @@ if (typeof NProgress != 'undefined') {
 				type: 'line',
 				width: '200',
 				height: '40',
-				lineColor: '#26B99A',
+				lineColor: '#16A6DF',
 				fillColor: 'rgba(223, 223, 223, 0.57)',
 				lineWidth: 2,
-				spotColor: '#26B99A',
-				minSpotColor: '#26B99A'
+				spotColor: '#16A6DF',
+				minSpotColor: '#16A6DF'
 			});
 			
 			
@@ -851,7 +851,7 @@ if (typeof NProgress != 'undefined') {
 					'7': '#a1a1a1'
 				},
 				barSpacing: 2,
-				barColor: '#26B99A'
+				barColor: '#16A6DF'
 			});
 			
 			
@@ -859,7 +859,7 @@ if (typeof NProgress != 'undefined') {
 				type: 'line',
 				height: '40',
 				width: '200',
-				lineColor: '#26B99A',
+				lineColor: '#16A6DF',
 				fillColor: '#ffffff',
 				lineWidth: 3,
 				spotColor: '#34495E',
@@ -872,14 +872,14 @@ if (typeof NProgress != 'undefined') {
 				colorMap: {
 					'7': '#a1a1a1'
 				},
-				barColor: '#26B99A'
+				barColor: '#16A6DF'
 			});
 			
 			
 			$(".sparkline_area").sparkline([5, 6, 7, 9, 9, 5, 3, 2, 2, 4, 6, 7], {
 				type: 'line',
-				lineColor: '#26B99A',
-				fillColor: '#26B99A',
+				lineColor: '#16A6DF',
+				fillColor: '#16A6DF',
 				spotColor: '#4578a0',
 				minSpotColor: '#728fb2',
 				maxSpotColor: '#6d93c4',
@@ -892,7 +892,7 @@ if (typeof NProgress != 'undefined') {
 			
 			$(".sparkline_line").sparkline([2, 4, 3, 4, 5, 4, 5, 4, 3, 4, 5, 6, 4, 5, 6, 3, 5], {
 				type: 'line',
-				lineColor: '#26B99A',
+				lineColor: '#16A6DF',
 				fillColor: '#ffffff',
 				width: 85,
 				spotColor: '#34495E',
@@ -902,14 +902,14 @@ if (typeof NProgress != 'undefined') {
 			
 			$(".sparkline_pie").sparkline([1, 1, 2, 1], {
 				type: 'pie',
-				sliceColors: ['#26B99A', '#ccc', '#75BCDD', '#D66DE2']
+				sliceColors: ['#16A6DF', '#ccc', '#75BCDD', '#D66DE2']
 			});
 			
 			
 			$(".sparkline_discreet").sparkline([4, 6, 7, 7, 4, 3, 2, 1, 4, 4, 2, 4, 3, 7, 8, 9, 7, 6, 4, 3], {
 				type: 'discrete',
 				barWidth: 3,
-				lineColor: '#26B99A',
+				lineColor: '#16A6DF',
 				width: '85',
 			});
 
@@ -1934,7 +1934,7 @@ if (typeof NProgress != 'undefined') {
 				$('.chart').easyPieChart({
 				  easing: 'easeOutElastic',
 				  delay: 3000,
-				  barColor: '#26B99A',
+				  barColor: '#16A6DF',
 				  trackColor: '#fff',
 				  scaleColor: false,
 				  lineWidth: 20,
@@ -2210,7 +2210,7 @@ if (typeof NProgress != 'undefined') {
 				  labels: ["January", "February", "March", "April", "May", "June", "July"],
 				  datasets: [{
 					label: '# of Votes',
-					backgroundColor: "#26B99A",
+					backgroundColor: "#16A6DF",
 					data: [51, 30, 40, 28, 92, 50, 45]
 				  }, {
 					label: '# of Votes',
@@ -2252,7 +2252,7 @@ if (typeof NProgress != 'undefined') {
 					"#455C73",
 					"#9B59B6",
 					"#BDC3C7",
-					"#26B99A",
+					"#16A6DF",
 					"#3498DB"
 				  ],
 				  hoverBackgroundColor: [
@@ -2321,7 +2321,7 @@ if (typeof NProgress != 'undefined') {
 						"#455C73",
 						"#9B59B6",
 						"#BDC3C7",
-						"#26B99A",
+						"#16A6DF",
 						"#3498DB"
 					  ],
 					  label: 'My dataset' // for legend
@@ -2358,7 +2358,7 @@ if (typeof NProgress != 'undefined') {
 					"#455C73",
 					"#9B59B6",
 					"#BDC3C7",
-					"#26B99A",
+					"#16A6DF",
 					"#3498DB"
 				  ],
 				  label: 'My dataset'
@@ -2617,7 +2617,7 @@ if (typeof NProgress != 'undefined') {
 				  ykeys: ['geekbench'],
 				  labels: ['Geekbench'],
 				  barRatio: 0.4,
-				  barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+				  barColors: ['#16A6DF', '#34495E', '#ACADAC', '#3498DB'],
 				  xLabelAngle: 35,
 				  hideHover: 'auto',
 				  resize: true
@@ -2642,7 +2642,7 @@ if (typeof NProgress != 'undefined') {
 					{"period": "2016-09-10", "licensed": 2115, "sorned": 1022}
 				  ],
 				  xkey: 'period',
-				  barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+				  barColors: ['#16A6DF', '#34495E', '#ACADAC', '#3498DB'],
 				  ykeys: ['licensed', 'sorned'],
 				  labels: ['Licensed', 'SORN'],
 				  hideHover: 'auto',
@@ -2664,7 +2664,7 @@ if (typeof NProgress != 'undefined') {
 				  ],
 				  xkey: 'x',
 				  ykeys: ['y', 'z', 'a'],
-				  barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+				  barColors: ['#16A6DF', '#34495E', '#ACADAC', '#3498DB'],
 				  hideHover: 'auto',
 				  labels: ['Y', 'Z', 'A'],
 				  resize: true
@@ -2692,7 +2692,7 @@ if (typeof NProgress != 'undefined') {
 				  ],
 				  xkey: 'period',
 				  ykeys: ['iphone', 'ipad', 'itouch'],
-				  lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+				  lineColors: ['#16A6DF', '#34495E', '#ACADAC', '#3498DB'],
 				  labels: ['iPhone', 'iPad', 'iPod Touch'],
 				  pointSize: 2,
 				  hideHover: 'auto',
@@ -2711,7 +2711,7 @@ if (typeof NProgress != 'undefined') {
 					{label: 'Custard', value: 25},
 					{label: 'Sugar', value: 10}
 				  ],
-				  colors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+				  colors: ['#16A6DF', '#34495E', '#ACADAC', '#3498DB'],
 				  formatter: function (y) {
 					return y + "%";
 				  },
@@ -2728,7 +2728,7 @@ if (typeof NProgress != 'undefined') {
 				  ykeys: ['value'],
 				  labels: ['Value'],
 				  hideHover: 'auto',
-				  lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+				  lineColors: ['#16A6DF', '#34495E', '#ACADAC', '#3498DB'],
 				  data: [
 					{year: '2012', value: 20},
 					{year: '2013', value: 10},
@@ -2760,7 +2760,7 @@ if (typeof NProgress != 'undefined') {
 		
 				  var theme = {
 				  color: [
-					  '#26B99A', '#34495E', '#BDC3C7', '#3498DB',
+					  '#16A6DF', '#34495E', '#BDC3C7', '#3498DB',
 					  '#9B59B6', '#8abb6f', '#759c6a', '#bfd3b7'
 				  ],
 
@@ -4470,7 +4470,7 @@ if (typeof NProgress != 'undefined') {
 					  text: ['High', 'Low'],
 					  realtime: false,
 					  calculable: true,
-					  color: ['#087E65', '#26B99A', '#CBEAE3']
+					  color: ['#087E65', '#16A6DF', '#CBEAE3']
 					},
 					series: [{
 					  name: 'World Population (2010)',
