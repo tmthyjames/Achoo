@@ -30,11 +30,11 @@ def login():
         login_user(user)
         g.user = user
 
-        nexturl = request.args.get('next')
-        if not is_safe_url(nexturl):
+        next_ = request.args.get('next')
+        if not is_safe_url(next_):
             return abort(400)
 
-        return redirect(nexturl or url_for('main.capture'), code=301)
+        return redirect(next_ or url_for('main.capture'), code=301)
     return render_template('login.html', title='Sign In', form=form)
 
 @main.route('/logout', methods=['GET'])
@@ -56,16 +56,6 @@ def prediction():
 @main.route('/my-dashboard', methods=['GET'])
 def dashboard():
     return render_template('my-dashboard.html')
-
-
-# auth
-
-login_manager = LoginManager()
-
-@login_manager.unauthorized_handler
-def needs_login():
-    return redirect(url_for('main.login', next=url_for(request.endpoint)))
-
 
 # http://flask.pocoo.org/snippets/62/
 def is_safe_url(target):

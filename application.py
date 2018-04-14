@@ -8,7 +8,7 @@ from flask import request
 from flask_sslify import SSLify
 
 # views
-from app.views.views import login_manager, main as views_blueprints
+from app.views.views import main as views_blueprints
 
 # forms
 from app.forms.forms import LoginForm
@@ -28,9 +28,8 @@ from app.config import Config
 sslify = SSLify(application)
 
 application.register_blueprint(views_blueprints)
-
-login_manager.init_app(application)
-
+login_manager = LoginManager(application)
+login_manager.login_view = 'main.login'
 
 @application.before_request
 def inject_globals():
