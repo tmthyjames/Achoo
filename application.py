@@ -28,10 +28,8 @@ from app.config import Config
 sslify = SSLify(application)
 
 application.register_blueprint(views_blueprints)
-
 login_manager = LoginManager(application)
-login_manager.init_app(application)
-
+login_manager.login_view = 'main.login'
 
 @application.before_request
 def inject_globals():

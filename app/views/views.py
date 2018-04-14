@@ -1,5 +1,6 @@
-from flask import render_template, Blueprint, redirect, url_for, flash, g
+from flask import abort, Blueprint, flash, g, render_template, redirect, request, url_for
 from flask_login import LoginManager, UserMixin, current_user, login_user, login_required, logout_user
+from urllib.parse import urlparse, urljoin
 from app.forms.forms import LoginForm
 from app.models.models import User
 
@@ -19,13 +20,21 @@ def login():
         return redirect(url_for('main.capture'))
     form = LoginForm()
     if form.validate_on_submit():
+
         user = User.query.filter_by(username=form.username.data).first()
+
         if user is None or not user.check_password(form.password.data):
             flash('Invalid username or password')
             return redirect(url_for('main.login'))
+
         login_user(user)
         g.user = user
-        return redirect(url_for('main.capture'))
+
+        next_ = request.args.get('next')
+        if not is_safe_url(next_):
+            return abort(400)
+
+        return redirect(next_ or url_for('main.capture'), code=301)
     return render_template('login.html', title='Sign In', form=form)
 
 @main.route('/logout', methods=['GET'])
@@ -48,7 +57,9 @@ def prediction():
 def dashboard():
     return render_template('my-dashboard.html')
 
-@main.errorhandler(401)
-def page_not_found(e):
-    form = LoginForm()
-    return render_template('login.html', form=form, title='Sign In')
+# http://flask.pocoo.org/snippets/62/
+def is_safe_url(target):
+    ref_url = urlparse(request.host_url)
+    test_url = urlparse(urljoin(request.host_url, target))
+    return test_url.scheme in ('http', 'https') and \
+           ref_url.netloc == test_url.netloc
