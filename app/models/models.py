@@ -34,7 +34,7 @@ class Treatment(UserMixin, db.Model):
     __tablename__ = 'treatment'
     id = db.Column(db.Integer, primary_key=True)
     userid = db.Column(db.Integer, nullable=False)
-    timestamp = db.Column(db.Integer, nullable=False)
+    timestamp = db.Column(db.BigInteger, nullable=False)
     lng = db.Column(db.Float)
     lat = db.Column(db.Float)
     treatment = db.Column(db.String(100), nullable=False)
