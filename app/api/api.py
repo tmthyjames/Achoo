@@ -3,18 +3,35 @@ from flask_restful import Resource
 from flask import request, url_for
 from flask_login import current_user, login_user
 
+from sqlalchemy import bindparam
+from sqlalchemy.sql import text
+from sqlalchemy.exc import DataError
+
 import requests
 import json
 
 # models
 from app.models.models import User, db, bcrypt, Treatment
 
-def get_zipcode_from_coords(lat, lng):
-    result = db.engine.execute("""
+
+def get_zipcode_from_coords(lat=-86.725573627, lng=36.227447713):
+
+    # bindparams casts the input to SQLAlchemy types,
+    # throws DataError if types are wrong.
+    statement = text("""
         select geom.geoid10 
         from cb_2016_us_zcta510_500k geom 
-        where ST_Contains(geom.geom, ST_MakePoint({lng}, {lat}))
-    """.format(lng=-86.725573627, lat=36.227447713)).first()
+        where ST_Contains(geom.geom, ST_MakePoint(:lng, :lat))
+    """).bindparams(
+        bindparam('lng', value=lng, type_=db.Float),
+        bindparam('lat', value=lat, type_=db.Float)
+    )
+
+    try:
+        result = db.engine.execute(statement).first()
+    except DataError:
+        return None
+
     if result:
         return result[0]
 
