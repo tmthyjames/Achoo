@@ -1,0 +1,153 @@
+{% extends "base_site.html" %}
+
+{% block title %} Achoo {% endblock title %}
+
+{% block stylesheets %}
+  {{ super() }}
+<style>
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    line-height: 1.4;
+    font-size: 20px;
+}
+body {
+	font-size: 17px;
+}
+</style>
+
+{% endblock stylesheets %}
+
+{% block content %}
+<div class="right_col" role="main">
+	<div class="row">
+	  <div class="col-md-10 col-sm-10 col-md-offset-1">
+	    <div class="x_panel">
+	      <div class="x_title">
+	        <h2>What is Achoo? </h2>
+	        <div class="clearfix"></div>
+	      </div>
+	      <div class="x_content">
+	        <ul class="list-unstyled timeline">
+	          <li>
+	            <div class="block">
+	              <div class="block_content">
+	                <h2 class="title">
+                        <a>Achoo is a free health monitoring app designed to provide insight into your respiratory issues.</a>
+                    </h2>
+	              </div>
+	            </div>
+	          </li>
+		      </ul>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="col-md-10 col-sm-10 col-md-offset-1">
+	    <div class="x_panel">
+	      <div class="x_title">
+	        <h2>How Achoo Works </h2>
+	        <div class="clearfix"></div>
+	      </div>
+	      <div class="x_content">
+	        <ul class="list-unstyled timeline">
+	          <li>
+	            <div class="block">
+	              <div class="tags">
+	                <a href="" class="tag">
+	                  <span>Data</span>
+	                </a>
+	              </div>
+	              <div class="block_content">
+	                <h2 class="title">
+                        <a>Collects data </a>
+                    </h2>
+	                <p class="excerpt">Achoo does this by retrieving information about the environment around you that may be contributing to your respiratory problems: air quality, allergens, and weather.
+	                </p>
+	              </div>
+	            </div>
+	          </li>
+	          <li>
+	            <div class="block">
+	              <div class="tags">
+	                <a href="" class="tag">
+	                  <span>AI</span>
+	                </a>
+	              </div>
+	              <div class="block_content">
+	                <h2 class="title">
+                        <a>Applies artificial intelligence</a>
+                    </h2>
+	                <p class="excerpt">It then applies artificial intelligence models that have been tuned specifically with your health in mind. These models use the data around you and your treatment data to determine if environmental factors play a role in your outbreaks.</a>
+	                </p>
+	              </div>
+	            </div>
+	          </li>
+	          <li>
+	            <div class="block">
+	              <div class="tags">
+	                <a href="" class="tag">
+	                  <span>Breathe</span>
+	                </a>
+	              </div>
+	              <div class="block_content">
+	                <h2 class="title">
+                        <a>Helps you breathe better</a>
+                    </h2>
+	                <p class="excerpt">If the models detect that your outbreaks are initiated by environmental factors, it notifies you so you can get out in front of it.</a>
+	                </p>
+	              </div>
+	            </div>
+	          </li>
+	        </ul>
+
+	      </div>
+	    </div>
+	  </div>
+	  <div class="col-md-10 col-sm-10 col-md-offset-1">
+	    <div class="x_panel">
+	      <div class="x_title">
+	        <h2>Want to contribute? </h2>
+	        <div class="clearfix"></div>
+	      </div>
+	      <div class="x_content">
+	        <ul class="list-unstyled timeline">
+	          <li>
+	            <div class="block">
+	              <div class="block_content">
+	                <h2 class="title">
+                        <a>There's still a lot to do to make Achoo better. If you'd like to help then head over to the <a target="_blank" href="https://github.com/tmthyjames/Achoo" style="color:#16A6DF;">Github page</a>.</a>
+                    </h2>
+	              </div>
+	            </div>
+	          </li>
+		      </ul>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="col-md-10 col-sm-10 col-md-offset-1">
+	    <div class="x_panel">
+	      <div class="x_title">
+	        <h2>Want to know more? </h2>
+	        <div class="clearfix"></div>
+	      </div>
+	      <div class="x_content">
+	        <ul class="list-unstyled timeline">
+	          <li>
+	            <div class="block">
+	              <div class="block_content">
+	                <h2 class="title">
+		                <a class="" data-toggle="tooltip" href="mailto:tmthyjames@gmail.com?Subject=Achoo%20Site" style="color:#16A6DF;" target="_top"> Email me!</a> I'd love some feedback. Also, check out <a target="_blank" href="https://tmthyjames.github.io/tools/prediction/Achoo-beta-0.1/" style="color:#16A6DF;">this blog post</a>  for more info.
+                    </h2>
+	              </div>
+	            </div>
+	          </li>
+		      </ul>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>
+{% endblock content %}
+
+{% block javascripts %}
+  {{ super() }}
+
+{% endblock javascripts %}
