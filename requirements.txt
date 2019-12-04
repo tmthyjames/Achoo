@@ -13,7 +13,7 @@ Jinja2==2.9.4
 Markdown==2.6.8
 MarkupSafe==0.23
 psycopg2==2.7.1
-requests==2.18.4
+requests==2.20.0
 SQLAlchemy==1.1.5
 tzlocal==1.4
 Werkzeug==0.15.3
