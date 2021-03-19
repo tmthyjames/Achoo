@@ -9,7 +9,7 @@ Flask-RESTful==0.3.6
 Flask-SQLAlchemy==2.3.2
 Flask-WTF==0.14.2
 itsdangerous==0.24
-Jinja2==2.9.4
+Jinja2==2.11.3
 Markdown==2.6.8
 MarkupSafe==0.23
 psycopg2==2.7.1
